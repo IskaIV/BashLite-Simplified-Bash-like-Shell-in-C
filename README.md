@@ -12,15 +12,6 @@
 
 - By completing this project together, we will gain practical experience in process control, command-line parsing, and error handling and the opportunity to build a robust and user-friendly shell interface that empowers users to interact with the operating system efficiently.
 
-## Group Members
-1. **Souhail Marnaoui**:
-  > sm22cb@fsu.edu
-3. **Iskandar Verdiyev**:
-  > iv22d@fsu.edu
-5. **Panayoti Kourkoumelis**:
-  > pk22j@fsu.edu
-
-## Division of Labor
 ### Part 1: Prompt
 **Responsibilities**:
 - The user will be greeted with a prompt that should indicate the absolute working directory, the user name, and the machine name. This is done by expanding the `$USER, $MACHINE, $PWD` environment variables. The user will type on the same line as the prompt.
@@ -31,8 +22,6 @@ USER@MACHINE:PWD>
 ```
 mnguyen@linprog2.cs.fsu.edu:/home/grads/mnguyen>
 ```
-**Assigned to**:
-> Souhail Marnaoui, Iskandar Verdiyev, Panayoti Kourkoumelis
 
 ### Part 2: Environment Variables
 **Responsibilities**:
@@ -40,8 +29,6 @@ mnguyen@linprog2.cs.fsu.edu:/home/grads/mnguyen>
 - For instance, given the command `echo, $USER`, the token `$USER` should be expanded to its corresponding value, resulting in the output `echo`, `mnguyen`. This expansion applies universally to any command, ensuring consistent token replacement throughout the shell. To accomplish this, you can utilize the `getenv()` function, the usage details of which can be found on its man page.
 - It's important to note that this token expansion occurs regardless of the executed command, providing a seamless integration of environment variable values within commands and generating the expected output.
 
-**Assigned to**:
-> Souhail Marnaoui, Iskandar Verdiyev
 
 ### Part 3: Tilde Expansion
 **Responsibilities**:
@@ -51,8 +38,6 @@ mnguyen@linprog2.cs.fsu.edu:/home/grads/mnguyen>
 ```
 - You will only have to handle the tilde expansion of a token if `~` a standalone or if it begins with `~/`.
 
-**Assigned to**:
-> Souhail Marnaoui, Panayoti Kourkoumelis
 
 ### Part 4: $PATH Search
 **Responsibilities**:
@@ -64,9 +49,7 @@ mnguyen@linprog2.cs.fsu.edu:/home/grads/mnguyen>
 /home/grads/mnguyen/.bin:/home/grads/mnguyen/.scripts:/usr/local/bin:/opt/sfw/bin:/usr/sfw/bin:/bin:/usr/bin:/usr/ccs/bin:/usr/ucb:.
 ```
 - In the event that the command is not found in any of the directories listed in `$PATH`, an error message should be displayed. In Bash, this typically results in the familiar `command not found` error message. Handling this scenario involves proper error detection and reporting, ensuring a clear indication when a command is not available within the directories specified in `$PATH`.
-
-**Assigned to**:
-> Souhail Marnaoui
+  
 
 ### Part 5: External Command Execution
 **Responsibilities**:
@@ -75,8 +58,6 @@ mnguyen@linprog2.cs.fsu.edu:/home/grads/mnguyen>
 - It's important to note that you must handle commands with arguments correctly. This means that commands such as `ls -al` with multiple arguments should be properly processed and executed in the child process.
 - By following this approach of forking and executing the command within the child process, you can ensure the proper execution of external commands, including those with arguments, within your shell. This separation of processes allows for efficient and accurate command execution while maintaining the stability and functionality of the shell as a whole.
 
-**Assigned to**:
-> Souhail Marnaoui
 
 ### Part 6: I/O Redirection
 **Responsibilities**:
@@ -104,8 +85,6 @@ mnguyen@linprog2.cs.fsu.edu:/home/grads/mnguyen>
 > [!NOTE]
 > Careful consideration should be given to the parsing of tokens, particularly in scenarios like `CMD > FILE_OUT < FILE_IN`. In this case, it is important to prioritize the order of operations. The input file `FILE_IN` should be read first and then passed as input to the command `CMD`, which will execute using that input. The resulting output will be redirected to the output file `FILE_OUT`. Paying attention to the correct sequencing and handling of tokens ensures that the desired input and output redirection behavior is achieved in complex scenarios like this.
 
-**Assigned to**:
-> Iskandar Verdiyev
 
 ### Part 7: Piping
 **Responsibilities**:
@@ -119,8 +98,6 @@ mnguyen@linprog2.cs.fsu.edu:/home/grads/mnguyen>
 - By implementing piping functionality, we enable the seamless flow of data between commands, enhancing the flexibility and power of the shell. Piping allows for the creation of command pipelines, where the output of one command becomes the input for the next. This feature promotes the construction of complex and efficient command sequences, enabling sophisticated data processing and manipulation within the shell environment.
 - Remember that each command is an independent process that runs concurrently, so you must fork a new process for each command with the correct redirections. You can assume that each of the piped commands in the test cases will be logical (each command will take an input and provide an output).
 
-**Assigned to**:
-> Panayoti Kourkoumelis
 
 ### Part 8: Background Processing
 **Responsibilities**:
@@ -146,8 +123,6 @@ mnguyen@linprog2.cs.fsu.edu:/home/grads/mnguyen>
   - By implementing background processing, the shell gains the capability to execute commands concurrently, improving overall efficiency. Background processing, in combination with I/O redirection and piping, enables the execution of complex command sequences while providing informative feedback about job status to the user.
   - The standard way to check for finished processes would be to use signals. In this instance, you do not to need to implement process checking via signals. You can just check the list of finished processes in the main loop after execution.
 
-**Assigned to**:
-> Souhail Marnaoui
 
 ### Part 9: Internal Command Execution
 **Responsibilities**:
@@ -170,8 +145,6 @@ mnguyen@linprog2.cs.fsu.edu:/home/grads/mnguyen>
     - Format:
       - `[Job number]+ [CMD's PID] [CMD's command line]`
 
-**Assigned to**:
-> Iskandar Verdiyev
 
 > [!NOTE]
 > Please note that these assignments are subject to discussion and adjustment based on the team's
@@ -191,20 +164,17 @@ root/
 ## How to Compile & Execute
 
 ### Requirements
-- **Compiler**: e.g., `gcc` for C/C++, `rustc` for Rust.
-- **Dependencies**: List any libraries or frameworks necessary (rust only).
+- **Compiler**: e.g., `gcc` for C/C++.
 
-### Compilation
-For a C/C++ example:
+### Compilation:
+
 ```bash
 make
 ```
-This will build the executable in ...
+This will build the executable
+
 ### Execution
 ```bash
 make run
 ```
-This will run the program ...
-
-## Bugs
-- No known bugs :)
+This will run the program 
